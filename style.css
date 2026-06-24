@@ -2,45 +2,44 @@ body {
 margin: 0;
 font-family: Arial;
 background: linear-gradient(135deg, #ffe6f0, #fff0f5, #ffe6f9);
-overflow: hidden;
 }
 
-/* páginas */
 .page {
 display: none;
 height: 100vh;
+text-align: center;
+padding: 20px;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-text-align: center;
-padding: 20px;
 }
 
 .active {
 display: flex;
 }
 
-/* grid 4 fotos */
-.grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 10px;
-margin-bottom: 10px;
+/* cada foto separada */
+.foto {
+margin: 15px auto;
 }
 
-.grid img {
-width: 120px;
-height: 120px;
+.foto img {
+width: 180px;
+height: 180px;
 object-fit: cover;
 border-radius: 15px;
 border: 3px solid white;
 box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* textos */
-.texto {
+.foto p {
+margin-top: 5px;
 color: #a61e4d;
-max-width: 300px;
+}
+
+/* textos */
+h1, h2 {
+color: #d63384;
 }
 
 /* botões */
@@ -51,37 +50,17 @@ border: none;
 padding: 10px 15px;
 border-radius: 20px;
 cursor: pointer;
-margin-top: 10px;
-transition: 0.3s;
+margin-top: 15px;
 }
 
 button:hover {
 background: #d63384;
-transform: scale(1.05);
 }
 
-/* inputs */
+/* input */
 input {
 padding: 10px;
 border-radius: 10px;
 border: 2px solid #ff4d88;
 text-align: center;
-}
-
-/* temas diferentes */
-.antigo {
-filter: sepia(0.6);
-}
-
-.natural {
-background: linear-gradient(135deg, #e6ffe6, #fff0f5);
-}
-
-.final {
-background: linear-gradient(135deg, #fff0f5, #ffe6f9);
-}
-
-/* títulos */
-h1, h2 {
-color: #d63384;
 }

@@ -8,133 +8,173 @@
 
 <body>
 
-<!-- 💖 CAPÍTULO 1 -->
+<!-- 💖 PÁGINA 1 -->
 <div class="page active" id="p1">
+
 <h1>💖 Nosso Amor 💖</h1>
 
-<div class="grid">
+<div class="foto">
 <img src="img1.jpg">
+<p>💖 Nosso primeiro momento juntos</p>
+</div>
+
+<div class="foto">
 <img src="img2.jpg">
+<p>💞 Um sorriso inesquecível</p>
+</div>
+
+<div class="foto">
 <img src="img3.jpg">
+<p>✨ Um dia que marcou tudo</p>
+</div>
+
+<div class="foto">
 <img src="img4.jpg">
+<p>💌 Começo de uma história linda</p>
 </div>
 
-<p class="texto">
-<!-- ✏️ TEXTO 1 -->
-Escreva aqui seu texto romântico 💕<br>
-Ex: nosso começo foi lindo...
-</p>
+<button onclick="next('p1','p2')">Próximo 💖</button>
 
-<button onclick="next('p1','p2')">Próximo 💌</button>
 </div>
 
-<!-- 💖 CAPÍTULO 2 (romântico antigo) -->
+<!-- 💖 PÁGINA 2 -->
 <div class="page" id="p2">
-<h1 class="antigo">🌹 Memórias Antigas 🌹</h1>
 
-<div class="grid antigo">
+<h1>🌹 Memórias antigas 🌹</h1>
+
+<div class="foto">
 <img src="img5.jpg">
-<img src="img6.jpg">
-<img src="img7.jpg">
-<img src="img8.jpg">
+<p>💖 Um momento antigo especial</p>
 </div>
 
-<p class="texto">
-<!-- ✏️ TEXTO 2 -->
-Aqui você escreve algo sobre lembranças antigas 💖
-</p>
+<div class="foto">
+<img src="img6.jpg">
+<p>🌹 Lembrança que não esqueço</p>
+</div>
+
+<div class="foto">
+<img src="img7.jpg">
+<p>💞 Um dia simples, mas perfeito</p>
+</div>
+
+<div class="foto">
+<img src="img8.jpg">
+<p>✨ Amor crescendo em silêncio</p>
+</div>
 
 <button onclick="next('p2','p3')">Próximo 💌</button>
+
 </div>
 
 <!-- ❓ PERGUNTA 1 -->
 <div class="page" id="p3">
-<h2>❓ Pergunta 1</h2>
 
-<p>Qual foi o começo da nossa história? 💕</p>
+<h2>❓ Pergunta 1</h2>
+<p>Escreva aqui sua pergunta depois 💖</p>
 
 <input id="q1" placeholder="Digite sua resposta">
 <button onclick="check1()">Responder</button>
 
 <p id="m1"></p>
+
 </div>
 
-<!-- 💖 CAPÍTULO 3 (natural romântico) -->
+<!-- 💖 PÁGINA 3 -->
 <div class="page" id="p4">
-<h1 class="natural">🌿 Amor Natural 🌿</h1>
 
-<div class="grid">
+<h1>🌿 Amor natural 🌿</h1>
+
+<div class="foto">
 <img src="img9.jpg">
-<img src="img10.jpg">
-<img src="img11.jpg">
-<img src="img12.jpg">
+<p>🌿 Um momento leve com você</p>
 </div>
 
-<p class="texto">
-<!-- ✏️ TEXTO 3 -->
-Aqui você escreve algo mais leve, natural 💖
-</p>
+<div class="foto">
+<img src="img10.jpg">
+<p>💖 Paz quando estou com você</p>
+</div>
+
+<div class="foto">
+<img src="img11.jpg">
+<p>✨ Simplicidade que vira amor</p>
+</div>
+
+<div class="foto">
+<img src="img12.jpg">
+<p>💞 Você me faz bem</p>
+</div>
 
 <button onclick="next('p4','p5')">Próximo 💌</button>
+
 </div>
 
 <!-- ❓ PERGUNTA 2 -->
 <div class="page" id="p5">
-<h2>❓ Pergunta 2</h2>
 
-<p>O que eu sinto por você? 💖</p>
+<h2>❓ Pergunta 2</h2>
+<p>Escreva sua segunda pergunta depois 💖</p>
 
 <input id="q2" placeholder="Digite sua resposta">
 <button onclick="check2()">Responder</button>
 
 <p id="m2"></p>
+
 </div>
 
-<!-- 💖 CAPÍTULO FINAL -->
+<!-- 💖 FINAL -->
 <div class="page" id="p6">
-<h1 class="final">💖 Nosso Final Perfeito 💖</h1>
 
-<div class="grid">
+<h1>💖 Nosso Final 💖</h1>
+
+<div class="foto">
 <img src="img13.jpg">
-<img src="img14.jpg">
-<img src="img15.jpg">
-<img src="img16.jpg">
+<p>💖 Você é tudo pra mim</p>
 </div>
 
-<p class="texto">
-<!-- ✏️ TEXTO FINAL -->
-Aqui você escreve o final mais romântico possível 💞
-</p>
+<div class="foto">
+<img src="img14.jpg">
+<p>💞 Amor que não acaba</p>
+</div>
 
-<h3>💖 Eu te amo para sempre 💖</h3>
+<div class="foto">
+<img src="img15.jpg">
+<p>✨ Cada momento com você vale ouro</p>
+</div>
+
+<div class="foto">
+<img src="img16.jpg">
+<p>💌 E esse é só o começo</p>
+</div>
+
+<h2>💖 Eu te amo 💖</h2>
+
 </div>
 
 <script>
 
-/* troca páginas */
 function next(atual, prox){
 document.getElementById(atual).classList.remove("active");
 document.getElementById(prox).classList.add("active");
 }
 
-/* respostas corretas */
+/* respostas (EDITÁVEL) */
 function check1(){
 let v = document.getElementById("q1").value.toLowerCase().trim();
 
-if(v.includes("começo") || v.includes("início") || v.includes("nós")){
+if(v.length > 0){
 next("p3","p4");
 } else {
-document.getElementById("m1").innerText = "💔 Tenta de novo...";
+document.getElementById("m1").innerText = "💔 Escreve algo...";
 }
 }
 
 function check2(){
 let v = document.getElementById("q2").value.toLowerCase().trim();
 
-if(v.includes("amor") || v.includes("você") || v.includes("tudo")){
+if(v.length > 0){
 next("p5","p6");
 } else {
-document.getElementById("m2").innerText = "💔 Quase lá...";
+document.getElementById("m2").innerText = "💔 Escreve algo...";
 }
 }
 
