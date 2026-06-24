@@ -8,78 +8,129 @@
 
 <body>
 
-<header class="topo">
+<!-- 🌹 PÁGINA 1 -->
+<div class="page active" id="p1">
+
+<div class="foto f1"><img src="img1.jpg"></div>
+<div class="foto f2"><img src="img2.jpg"></div>
+<div class="foto f3"><img src="img3.jpg"></div>
+<div class="foto f4"><img src="img4.jpg"></div>
+
+<div class="centro">
 <h1>💖 Nosso Amor 💖</h1>
-<p>Um relacionamento que virou história</p>
-</header>
 
-<section class="perfil">
-<img src="img1.jpg" class="avatar">
-
-<div>
-<h2>Jose & Você 💕</h2>
-<p>Juntos desde o começo do nosso sonho ✨</p>
-
-<button onclick="amor()">💌 Mensagem de amor</button>
-</div>
-</section>
-
-<section class="stats">
-<div>💖 1 Amor</div>
-<div>📅 Desde sempre</div>
-<div>💞 16 memórias</div>
-</section>
-
-<section class="sobre">
-<h2>Sobre nós</h2>
-<p>
-Aqui começa nossa história. Entre risadas, brigas, reconciliações e carinho,
-a gente construiu algo único. 💕
+<p class="texto">
+<!-- ✏️ SEU TEXTO AQUI -->
+Escreva aqui seu texto romântico 💕<br>
+Ex: cada momento com você é único...
 </p>
-</section>
 
-<section class="timeline">
-<h2>Linha do tempo 💖</h2>
-
-<div class="item">💖 Primeiro encontro</div>
-<div class="item">😂 Primeira risada juntos</div>
-<div class="item">💌 Primeira mensagem longa</div>
-<div class="item">💞 Primeira foto juntos</div>
-<div class="item">✨ Momento especial</div>
-</section>
-
-<section class="galeria">
-<h2>Nosso feed 💕</h2>
-
-<div class="grid">
-<img src="img1.jpg">
-<img src="img2.jpg">
-<img src="img3.jpg">
-<img src="img4.jpg">
-<img src="img5.jpg">
-<img src="img6.jpg">
-<img src="img7.jpg">
-<img src="img8.jpg">
-<img src="img9.jpg">
-<img src="img10.jpg">
-<img src="img11.jpg">
-<img src="img12.jpg">
-<img src="img13.jpg">
-<img src="img14.jpg">
-<img src="img15.jpg">
-<img src="img16.jpg">
+<button onclick="next('p1','p2')">Próximo 💌</button>
 </div>
 
-</section>
+</div>
 
-<footer>
-<p>💖 Feito com amor infinito 💖</p>
-</footer>
+<!-- 🌹 PÁGINA 2 -->
+<div class="page" id="p2">
+
+<div class="card">
+<h1>💞 Nosso Encontro 💞</h1>
+
+<p>
+Bem-vinda ao nosso cantinho especial 💖<br><br>
+Aqui é onde nossa história aparece como um sonho lindo.<br>
+Cada clique é um passo do nosso amor ✨
+</p>
+
+<button onclick="next('p2','p3')">Continuar ➜</button>
+</div>
+
+</div>
+
+<!-- 🌹 PÁGINA 3 (PERGUNTA SUA) -->
+<div class="page" id="p3">
+
+<div class="card">
+<h2>❓ Sua pergunta aqui</h2>
+
+<!-- ✏️ VOCÊ MUDA A PERGUNTA AQUI -->
+<p>Que dia começamos a conversar? 💕</p>
+
+<input id="q1" placeholder="Digite sua resposta">
+<button onclick="check1()">Responder</button>
+
+<p id="m1"></p>
+</div>
+
+</div>
+
+<!-- 🌹 PÁGINA 4 (ROMÂNTICA CRIADA) -->
+<div class="page" id="p4">
+
+<div class="card">
+<h2>❓ Pergunta do amor</h2>
+
+<p>Qual é a pessoa que mais te ama no mundo? 💖</p>
+
+<input id="q2" placeholder="Digite sua resposta">
+<button onclick="check2()">Responder</button>
+
+<p id="m2"></p>
+</div>
+
+</div>
+
+<!-- 🌹 FINAL -->
+<div class="page" id="p5">
+
+<div class="card final">
+<h1>💖 Você chegou ao final 💖</h1>
+
+<p>
+Isso aqui é só uma parte do que sinto por você 💕<br>
+Mas na vida real… meu amor por você não tem final ✨
+</p>
+
+<h3>💞 Eu te amo 💞</h3>
+</div>
+
+</div>
 
 <script>
-function amor(){
-alert("💖 Eu te escolho hoje, amanhã e sempre 💖");
+
+/* troca de páginas */
+function next(atual, prox){
+document.getElementById(atual).classList.remove("active");
+document.getElementById(prox).classList.add("active");
 }
+
+/* RESPOSTAS (VOCÊ EDITA AQUI) */
+const respostas = {
+1: ["nosso dia", "hoje", "2024"] // 🔥 VOCÊ MUDA AQUI
+};
+
+function check1(){
+let v = document.getElementById("q1").value.toLowerCase().trim();
+
+if(respostas[1].includes(v)){
+document.getElementById("m1").innerText = "💖 Correto!";
+setTimeout(()=> next('p3','p4'), 800);
+} else {
+document.getElementById("m1").innerText = "💔 Tenta de novo...";
+}
+}
+
+function check2(){
+let v = document.getElementById("q2").value.toLowerCase().trim();
+
+if(v.includes("você") || v.includes("ela") || v.includes("amor")){
+document.getElementById("m2").innerText = "💖 Perfeito!";
+setTimeout(()=> next('p4','p5'), 800);
+} else {
+document.getElementById("m2").innerText = "💔 Quase lá...";
+}
+}
+
 </script>
 
 </body>
