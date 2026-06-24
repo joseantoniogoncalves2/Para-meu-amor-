@@ -158,24 +158,24 @@ document.getElementById(atual).classList.remove("active");
 document.getElementById(prox).classList.add("active");
 }
 
-/* respostas (dia 20, 20/11, 21) */
+/* respostas (EDITAVEL) */
 function check1(){
 let v = document.getElementById("q1").value.toLowerCase().trim();
 
-if(v.length > 0){
+if(v.includes("dia 21") || v.includes("21/11") || v.includes("21")){
 next("p3","p4");
 } else {
-document.getElementById("m1").innerText = "💔 Escreve algo...";
+document.getElementById("m1").innerText = "💔 blz nao sabe nadaaa";
 }
 }
 
 function check2(){
 let v = document.getElementById("q2").value.toLowerCase().trim();
 
-if(v.length > 0){
+if(v.includes("dia 31") || v.includes("dia 21") || v.includes("31/12")){
 next("p5","p6");
 } else {
-document.getElementById("m2").innerText = "💔 Escreve algo...";
+document.getElementById("m2").innerText = "💔 mds sabe de nada tambem ";
 }
 }
 
