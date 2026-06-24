@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nossa História ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.card{
+    width:90%;
+    max-width:400px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.text{
+    padding:20px;
+}
+
+.text h2{
+    color:#ff4d6d;
+    margin-bottom:10px;
+}
+
+.text p{
+    color:#555;
+    font-size:16px;
+}
+
+button{
+    margin:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    animation:float 5s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-100px);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <img id="photo" src="imagem1.jpg" alt="Foto">
+    
+    <div class="text">
+        <h2 id="title">Título 1 ❤️</h2>
+        <p id="message">
+            Sua mensagem aqui...
+        </p>
+    </div>
+
+    <button onclick="nextSlide()">Próxima ➜</button>
+</div>
+
+<script>
+
+const slides = [
+{
+    img:"imagem1.jpg",
+    title:"Título 1 ❤️",
+    text:"Sua primeira mensagem aqui."
+},
+{
+    img:"imagem2.jpg",
+    title:"Título 2 ❤️",
+    text:"Sua segunda mensagem aqui."
+},
+{
+    img:"imagem3.jpg",
+    title:"Título 3 ❤️",
+    text:"Sua terceira mensagem aqui."
+},
+{
+    img:"imagem4.jpg",
+    title:"Título 4 ❤️",
+    text:"Sua quarta mensagem aqui."
+},
+{
+    img:"imagem5.jpg",
+    title:"Eu Te Amo ❤️",
+    text:"Mensagem final."
+}
+];
+
+let current = 0;
+
+function nextSlide(){
+
+    current++;
+
+    if(current >= slides.length){
+        current = 0;
+    }
+
+    document.getElementById("photo").src = slides[current].img;
+    document.getElementById("title").innerText = slides[current].title;
+    document.getElementById("message").innerText = slides[current].text;
+}
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20+15)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
+
+setInterval(createHeart,400);
+
+</script>
+
+</body>
+</html>
