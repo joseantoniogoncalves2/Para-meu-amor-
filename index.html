@@ -92,42 +92,7 @@ button:hover{
         <h2 id="title">Título 1 ❤️</h2>
         <p id="message">
             Sua mensagem aqui...
-        </p>
-    </div>
-
-    <button onclick="nextSlide()">Próxima ➜</button>
-</div>
-
-<script>
-
-const slides = [
-{
-    img:"imagem1.jpg",
-    title:"Título 1 ❤️",
-    text:"Sua primeira mensagem aqui."
-},
-{
-    img:"imagem2.jpg",
-    title:"Título 2 ❤️",
-    text:"Sua segunda mensagem aqui."
-},
-{
-    img:"imagem3.jpg",
-    title:"Título 3 ❤️",
-    text:"Sua terceira mensagem aqui."
-},
-{
-    img:"imagem4.jpg",
-    title:"Título 4 ❤️",
-    text:"Sua quarta mensagem aqui."
-},
-{
-    img:"imagem5.jpg",
-    title:"Eu Te Amo ❤️",
-    text:"Mensagem final."
-}
-];
-
+        </p
 let current = 0;
 
 function nextSlide(){
@@ -161,6 +126,157 @@ function createHeart(){
 }
 
 setInterval(createHeart,400);
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nossa História ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    transition: background 1s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.card{
+    width:90%;
+    max-width:500px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.gallery{
+    display:flex;
+    gap:5px;
+    padding:10px;
+    overflow-x:auto;
+}
+
+.gallery img{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.text{
+    padding:15px;
+}
+
+button{
+    margin:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="gallery" id="gallery"></div>
+
+    <div class="text">
+        <h2 id="title">Título ❤️</h2>
+        <p id="message">Mensagem aqui...</p>
+    </div>
+
+    <button onclick="nextSlide()">Próxima ➜</button>
+
+</div>
+
+<script>
+
+const slides = [
+{
+    theme:"linear-gradient(135deg,#ff9a9e,#fad0c4)",
+    title:"Início 💕",
+    text:"Aqui tudo começou...",
+    images:["img1.jpg","img2.jpg"]
+},
+{
+    theme:"linear-gradient(135deg,#a1c4fd,#c2e9fb)",
+    title:"Momentos felizes ☀️",
+    text:"Cada momento com você é especial.",
+    images:["img3.jpg","img4.jpg","img5.jpg"]
+},
+{
+    theme:"linear-gradient(135deg,#fbc2eb,#a6c1ee)",
+    title:"Saudades ❤️",
+    text:"Mesmo longe, eu penso em você.",
+    images:["img6.jpg","img7.jpg"]
+},
+{
+    theme:"linear-gradient(135deg,#ffecd2,#fcb69f)",
+    title:"Nosso amor antigo 💌",
+    text:"Um amor que parece de outra época.",
+    images:["img8.jpg","img9.jpg"]
+},
+{
+    theme:"linear-gradient(135deg,#1f1c2c,#928dab)",
+    title:"Final ❤️",
+    text:"Eu te amo mais do que tudo.",
+    images:["img10.jpg"]
+}
+];
+
+let current = 0;
+
+function loadSlide(){
+
+    const slide = slides[current];
+
+    // muda tema
+    document.body.style.background = slide.theme;
+
+    // texto
+    document.getElementById("title").innerText = slide.title;
+    document.getElementById("message").innerText = slide.text;
+
+    // fotos
+    const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
+
+    slide.images.forEach(img=>{
+        const image = document.createElement("img");
+        image.src = img;
+        gallery.appendChild(image);
+    });
+}
+
+function nextSlide(){
+    current++;
+    if(current >= slides.length){
+        current = 0;
+    }
+    loadSlide();
+}
+
+loadSlide();
 
 </script>
 
